@@ -79,13 +79,14 @@ if (isset($_POST['updatefavicon'])) {
 
 ?>
 
-<h1 class="mt-4">Site Settings</h1>
+<div class="sitesettings">
+    <h1 class="mt-4">Site Settings</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"><a href="dashboard.php">Dashboard</a>  -> Site Settings</li>
     </ol>
-    <div class="row">
+    <div class="row  bg-secondary p-2 rounded">
         <div class="col-md-6">
-            <h3 class="mb-4">Update Website Logo</h3>
+            <h3 class="mb-4 text-white">Update Website Logo</h3>
             <span class="text-danger"><?php echo $logerror; ?></span>
             <span class="text-success"><?php echo $logsucces; ?></span>
             <form action="" method="post" enctype="multipart/form-data">
@@ -96,12 +97,12 @@ if (isset($_POST['updatefavicon'])) {
                     <label for="logo" class="form-label">Choose Logo</label>
                     <input type="file" id="logo" name="logo" accept="image/*" onchange="logopreviewImage()">
                 </div>
-                    <button type="submit" name="updatelogo" class="btn btn-primary">Update Logo</button>
+                    <button type="submit" name="updatelogo" class="btn btn-success">Update Logo</button>
             </form>
         </div>
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-4  bg-light p-2 rounded">
         <div class="col-md-6">
             <h3 class="mb-4">Update Website Favicon</h3>
             <span class="text-danger"><?php echo $faverror; ?></span>
@@ -118,6 +119,7 @@ if (isset($_POST['updatefavicon'])) {
             </form>
         </div>
     </div>
+</div>
 
 <script>
     // Logo Preview Javascript

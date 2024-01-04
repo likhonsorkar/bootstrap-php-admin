@@ -8,6 +8,22 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
+
+                            <!-- Pages Section -->
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Category
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <!-- pages collapse -->
+                            <div class="collapse" id="collapseCategory" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="createcat.php">Add Category</a>
+                                    <a class="nav-link" href="managecat.php">Manage Category</a>
+                                </nav>
+                            </div>
+
+
                             <!-- Post Section  -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fab fa-pagelines"></i></div>
@@ -21,6 +37,7 @@
                                     <a class="nav-link" href="managepost.php">Manage Post</a>
                                 </nav>
                             </div>
+
                             
                             <!-- Pages Section -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -33,7 +50,7 @@
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="createpage.php">Create New Page</a>
                                     <a class="nav-link" href="managepage.php">Manage New Page</a>
-                                    <a class="nav-link" href="#">Manage System Page</a>
+                                    <a class="nav-link" href="#">System Page</a>
                                 </nav>
                             </div>
 
@@ -64,8 +81,7 @@
                             <div class="collapse" id="collapseSettings" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="sitesettings.php">Site Settings</a>
-                                    <a class="nav-link" href="#">Post Settings</a>
-                                    <a class="nav-link" href="#">Page Settings</a>
+                                    <a class="nav-link" href="#">Search Engine</a>
                                 </nav>
                             </div>
                         </div>

@@ -26,8 +26,14 @@
                             include_once('view/createpost.php');  
                            }elseif ($view == "managepost") {
                             include_once('view/managepost.php');
+                           }elseif ($view == "updatepost") {
+                            include_once('view/updatepost.php');
+                           }elseif ($view == "createcate") {
+                            include_once('view/createcat.php');
+                           }elseif ($view == "updatecat") {
+                            include_once('view/updatecat.php');
                            }else{
-                            include_once('404.html');
+                            include_once('404.php');
                            }
                         ?>
                     </div>
