@@ -30,6 +30,8 @@
                             include_once('view/updatepost.php');
                            }elseif ($view == "createcate") {
                             include_once('view/createcat.php');
+                           }elseif ($view == "managecat") {
+                            include_once('view/managecat.php');
                            }elseif ($view == "updatecat") {
                             include_once('view/updatecat.php');
                            }else{
