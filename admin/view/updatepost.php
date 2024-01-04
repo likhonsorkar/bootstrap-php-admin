@@ -1,6 +1,6 @@
 <?php
     $formerr = "";
-    if(isset($_POST['createpage'])){
+    if(isset($_POST['updatepost'])){
         // Assuming you have received the title from the form
         $title = $_POST['title'];
         
@@ -50,7 +50,7 @@
         </div>
 
 
-            <button type="submit" name="createpage" class="btn btn-primary">Create New Page</button>
+            <button type="submit" name="updatepost" class="btn btn-primary">Update Post</button>
     </form>
 
    

@@ -1,6 +1,6 @@
 <?php
     $formerr = "";
-    if(isset($_POST['createpage'])){
+    if(isset($_POST['updatecat'])){
         // Assuming you have received the title from the form
         $name = $_POST['name'];
         
@@ -37,7 +37,7 @@
             <input name="tag" class="form-control">
         </div>
 
-            <button type="submit" name="createpage" class="btn btn-primary">Add Category</button>
+            <button type="submit" name="updatecat" class="btn btn-primary">Update Category</button>
     </form>
 
    

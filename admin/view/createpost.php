@@ -1,13 +1,12 @@
 <?php
     $formerr = "";
-    if(isset($_POST['createpage'])){
+    if(isset($_POST['createpost'])){
         // Assuming you have received the title from the form
         $title = $_POST['title'];
         
         // Generate the slug
         $slug =  $title;
         $cat = $_POST['category'];
-      
         $content = $_POST['content'];
         $meta_des = $_POST['meta_des'];
         $tag = $_POST['tag'];
@@ -52,7 +51,7 @@
         </div>
 
 
-            <button type="submit" name="createpage" class="btn btn-primary">Create New Page</button>
+            <button type="submit" name="createpost" class="btn btn-primary">Create New Page</button>
     </form>
 
    

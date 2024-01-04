@@ -1,6 +1,6 @@
 <?php
     $formerr = "";
-    if(isset($_POST['createpage'])){
+    if(isset($_POST['addcategory'])){
         // Assuming you have received the title from the form
         $name = $_POST['name'];
         
@@ -15,9 +15,9 @@
         }
     }
 ?>
-<h1 class="mt-4">Create a Category</h1>
+<h1 class="mt-4">Add Category</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active"><a href="dashboard.php">Dashboard</a>  -> Create a Category </li>
+        <li class="breadcrumb-item active"><a href="dashboard.php">Dashboard</a>  -> Add Category </li>
     </ol>
 
     <?php if(isset($slug)){echo "<a href='$slug'> This is ".$slug." </a>";}?>
@@ -37,7 +37,7 @@
             <input name="tag" class="form-control">
         </div>
 
-            <button type="submit" name="createpage" class="btn btn-primary">Add Category</button>
+            <button type="submit" name="addcategory" class="btn btn-primary">Add Category</button>
     </form>
 
    

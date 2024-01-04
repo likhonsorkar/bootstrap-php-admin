@@ -36,7 +36,7 @@
             <input name="tag" class="form-control">
         </div>
 
-            <button type="submit" name="updatepage" class="btn btn-primary">Create New Page</button>
+            <button type="submit" name="updatepage" class="btn btn-primary">Update Page</button>
     </form>
     <?php
     } else{
