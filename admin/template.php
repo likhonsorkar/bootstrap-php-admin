@@ -1,5 +1,19 @@
 <?php
     // Dashboard Page includes Head
+    session_start();
+
+    include_once('database.php');
+    $obj = new database;
+        if(!isset($_SESSION['admin_email']) && !isset($_SESSION['admin_password'])){
+            $post['email'] = "";
+            $post['password'] = "";
+            $returnmsg = $obj->checkadminlogin($post);
+        }else{
+            $post['email'] = $_SESSION['admin_email'];
+            $post['password'] = $_SESSION['admin_password'];
+            $returnmsg = $obj->checkadminlogin($post);
+        }
+
 ?>
 <?php include_once('includes/head.php'); ?>
     <body class="sb-nav-fixed">

@@ -1,3 +1,10 @@
+<?php 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    include_once('database.php');
+    include_once('functions/functions.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,4 +20,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- include summernote css/js -->
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     </head>
+    <?php
+        // Login Page includes Head
+        $obj = new database;
+        if(isset($_SESSION['admin_email']) && isset($_SESSION['admin_password'])){
+            $post['email'] = $_SESSION['admin_email'];
+            $post['password'] = $_SESSION['admin_password'];
+            $returnmsg = $obj->checkadminlogin($post);
+        }
+    ?>
