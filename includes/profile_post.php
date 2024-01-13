@@ -1,5 +1,7 @@
 <?php
-    $postitems = $obj->numrows("blog_posts");
+    $author_id = $_GET['id'];
+
+    $postitems = $obj->author_post_row($author_id);
     $devidednumrows = ($postitems/7)+1;
     if(isset($_GET['pageno'])){
         $pageno = $_GET['pageno'];
@@ -7,21 +9,21 @@
         $pagenoplus = $pageno+1;
         $pagenominus = $pageno-1;
         if($pagenominus<1){
-            $postlist = $obj->postlist(7,0);
+            $postlist = $obj->author_post_list(7, 0, $author_id);
         }else{
-            $postlist = $obj->postlist(7,$offset);
+            $postlist = $obj->author_post_list(7, $offset, $author_id);
         }
     }else{
         $pageno = 1;
         $pagenoplus = $pageno+1;
         $pagenominus = $pageno-1;
-        $postlist = $obj->postlist(7,0);
+        $postlist = $obj->author_post_list(7, 0, $author_id);
     }
 ?>
-<h2 class="text-center h1 mb-2">Recent Posts</h2>
+<h2 class="text-center h1 mb-2"> User's Posts</h2>
                 <?php 
                         if(mysqli_num_rows($postlist)==0){
-                            echo "<h6 class='text-center'> No Post Found </h6>";
+                            echo "<h6 class='text-center'> No Post Found For this user </h6>";
                         }else{
                             while($data = mysqli_fetch_assoc($postlist)){
                         ?>
@@ -82,7 +84,7 @@
                  <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         <li class="page-item <?php if($pagenominus<1){echo "disabled"; } ?>">
-                            <a class="page-link" href="?pageno=<?php echo $pagenominus ?>" tabindex="-1">
+                            <a class="page-link" href="?id=<?php echo $author_id?>&pageno=<?php echo $pagenominus ?>" tabindex="-1">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
@@ -90,12 +92,12 @@
                         <?php
                             for($i=1;$i<=$devidednumrows;$i++){
                                 ?>
-                                <li class="page-item"><a class="page-link" href="?pageno=<?php echo $i ?>"><?php echo $i ?></a></li>
+                                <li class="page-item"><a class="page-link" href="?id=<?php echo $author_id?>&pageno=<?php echo $i ?>"><?php echo $i ?></a></li>
                                 <?php
                             }
                         ?>
                         <li class="page-item <?php if($pagenoplus>$devidednumrows){echo "disabled"; } ?>">
-                            <a class="page-link" href="?pageno=<?php echo $pagenoplus ?>">
+                            <a class="page-link" href="?id=<?php echo $author_id?>&pageno=<?php echo $pagenoplus ?>">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>

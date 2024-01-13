@@ -1,5 +1,5 @@
 <?php
-    include_once('admin/database.php');
+    include_once('database.php');
     $obj = new database();
 ?>
 <!DOCTYPE html>
@@ -16,15 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 </head>
 <body>
-
-
     <!-- Header Area -->
     <header style="background-color: #45526e" class="text-white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg navbar-dark">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="index.php">
                             <img src="https://picsum.photos/363/122" alt="Your Logo" width="200" height="auto" class="d-inline-block align-top">
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
