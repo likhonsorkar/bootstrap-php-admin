@@ -73,7 +73,7 @@
                                     $catname = $data['category_name'];
                                     $catslug = $data['slug'];
                                     ?>
-                                    <li class="cat-cloud"><a href="category.php?id=<?php echo $catslug ?>"><i class="fa-solid fa-list mr-2"></i> <?php echo $catname ?></a></li>
+                                    <li class="cat-cloud"><a href="category.php?slug=<?php echo $catslug ?>&catname=<?php echo $catdata['category_name']; ?>"><i class="fa-solid fa-list mr-2"></i> <?php echo $catname ?></a></li>
                                     <?php
                                 } 
                             ?>

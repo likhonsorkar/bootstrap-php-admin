@@ -83,6 +83,49 @@ class database {
     }
 
 
+    // Function to get post data by category
+    public function postcat($limit, $offset, $q) {
+
+        $sqlc = "SELECT * FROM post_category WHERE slug='$q'";
+
+        if($queryc = mysqli_query($this->conn, $sqlc) ){
+            $data =  mysqli_fetch_assoc($queryc);
+            $id = $data['category_id'];
+           
+            $sql = "SELECT * FROM blog_posts WHERE category_id = $id";
+        
+            if ($query = mysqli_query($this->conn, $sql)) {
+                return $query;
+            } else {
+                die("Connection Problem");
+            }
+        }
+
+        
+    }
+    
+    public function postcatrow($q){
+        $sqlc = "SELECT * FROM post_category WHERE slug='$q'";
+
+        if($queryc = mysqli_query($this->conn, $sqlc) ){
+            $data =  mysqli_fetch_assoc($queryc);
+            $id = $data['category_id'];
+           
+            $sql = "SELECT * FROM blog_posts WHERE category_id = $id";
+        
+            if ($query = mysqli_query($this->conn, $sql)) {
+                return mysqli_num_rows($query);;
+            } else {
+                die("Connection Problem");
+            }
+        }
+    }
+
+
+
+
+
+
     public function postbyslug($slug){
         $sql = "SELECT * FROM blog_posts WHERE slug ='$slug'";
         if($query = mysqli_query($this->conn, $sql)){

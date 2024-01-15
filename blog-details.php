@@ -34,7 +34,7 @@
                         $cat = $obj->singlecatlist($data['category_id']);
                         $catdata = mysqli_fetch_assoc($cat);
                     ?>
-                        <a href="category.php?slug=<?php echo $catdata['slug'] ?>" class="text-warning text-uppercase"><?php echo $catdata['category_name']; ?></a>
+                        <a href="category.php?slug=<?php echo $catdata['slug'] ?>&catname=<?php echo $catdata['category_name']; ?>" class="text-warning text-uppercase"><?php echo $catdata['category_name']; ?></a>
                     </h4>
                     <h2 class="h3" style="color:#45526e"><?php echo $data['title'] ?></h2>
                     <ul class="post-info">
