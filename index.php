@@ -1,4 +1,13 @@
-<?php include_once ('includes/head.php'); ?>
+<?php 
+include_once('database.php');
+$obj = new database();
+$pagetitle = "ubloging";
+$pagedes = "Ubloging is a blog website";
+$pagethumb = "admin/site/logo.png";
+$pagetag = "Ubloging, Blog Website";
+$pageauthor = "Md. Likhon Sorkar";
+include_once ('includes/head.php'); 
+?>
 
     <!-- Featured Post Start -->
     <?php include_once ('includes/fetured_post.php'); ?>
@@ -17,4 +26,6 @@
         </div>
     </section>
     <!-- recent post end -->
-<?php include_once('includes/footer.php'); ?>
+<?php 
+include_once('includes/footer.php'); 
+?>

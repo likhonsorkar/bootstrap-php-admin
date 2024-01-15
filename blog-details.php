@@ -1,5 +1,6 @@
-<?php 
-    include_once ('includes/head.php'); 
+<?php
+    include_once('database.php');
+    $obj = new database();
     if (isset($_GET['slug'])){
        $query = $obj->postbyslug($_GET['slug']);
        $data = mysqli_fetch_assoc($query); 
@@ -14,7 +15,14 @@
        $author_bio = $author_data['profile_bio'];
        $author_id = $author_data['id'];
        $author_badge = $author_data['badge'];
+       $obj = new database();
+        $pagetitle = $data['title'];
+        $pagedes = $data['meta_description'];
+        $pagethumb = "images/".$data['feature_image'];
+        $pagetag = $data['tags'];
+        $pageauthor = $author_fullname;
     }
+    include_once ('includes/head.php'); 
 ?>
     <div class="container mt-4">
         <div class="row">

@@ -1,4 +1,8 @@
-<?php include_once ('includes/head.php'); ?>
+<?php 
+include_once('database.php');
+$obj = new database();
+include_once ('includes/head.php'); 
+?>
 
     <section class="container mt-4">
         <div class="row">

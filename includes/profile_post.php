@@ -2,22 +2,22 @@
     $author_id = $_GET['id'];
 
     $postitems = $obj->author_post_row($author_id);
-    $devidednumrows = ($postitems/7)+1;
+    $devidednumrows = ($postitems/4)+1;
     if(isset($_GET['pageno'])){
         $pageno = $_GET['pageno'];
-        $offset = ($pageno-1) * 7;
+        $offset = ($pageno-1) * 4;
         $pagenoplus = $pageno+1;
         $pagenominus = $pageno-1;
         if($pagenominus<1){
-            $postlist = $obj->author_post_list(7, 0, $author_id);
+            $postlist = $obj->author_post_list(4, 0, $author_id);
         }else{
-            $postlist = $obj->author_post_list(7, $offset, $author_id);
+            $postlist = $obj->author_post_list(4, $offset, $author_id);
         }
     }else{
         $pageno = 1;
         $pagenoplus = $pageno+1;
         $pagenominus = $pageno-1;
-        $postlist = $obj->author_post_list(7, 0, $author_id);
+        $postlist = $obj->author_post_list(4, 0, $author_id);
     }
 ?>
 <h2 class="text-center h1 mb-2"> User's Posts</h2>

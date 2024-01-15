@@ -1,37 +1,77 @@
-<?php
-    include_once('database.php');
-    $obj = new database();
-    $ptitle = "Test";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Title -->
-    <title><?php echo $ptitle ?></title>
+    <title><?php 
+            if(isset($pagetitle)){ 
+                echo $pagetitle; 
+            }
+            else {
+                echo "UBloging";
+            }?></title>
 
     <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="Your Open Graph Title">
-    <meta property="og:description" content="Your Open Graph Description">
-    <meta property="og:image" content="URL to Your Image Thumbnail">
-    <meta property="og:url" content="URL to Your Page">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Your Twitter Title">
-    <meta name="twitter:description" content="Your Twitter Description">
-    <meta name="twitter:image" content="URL to Your Twitter Image Thumbnail">
-
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="Your-Google-Verification-Code">
-
-    <!-- Bing Webmaster Tools Verification -->
-    <meta name="msvalidate.01" content="Your-Bing-Verification-Code">
+    <meta property="og:title" 
+           content="<?php 
+            if(isset($pagetitle)){ 
+                echo $pagetitle; 
+            }
+            else {
+                echo "UBloging";
+            } 
+            ?>">
+    <meta property="og:description" 
+          content="<?php 
+            if(isset($pagedes)){ 
+                echo $pagedes; 
+            }
+            else {
+                echo "UBloging is Blog Website";
+            } 
+            ?>">
+    <meta property="og:image" 
+    content="<?php 
+            if(isset($pagethumb)){ 
+                echo $pagethumb; 
+            }
+            else {
+                echo "admin/site/logo.png";
+            } 
+            ?>">
 
     <!-- Other Meta Tags (optional) -->
-    <meta name="keywords" content="keyword1, keyword2, keyword3">
-    <meta name="author" content="Your Name">
+    <meta name="description" 
+    content="<?php 
+            if(isset($pagedes)){ 
+                echo $pagedes; 
+            }
+            else {
+                echo "UBloging is Blog Website";
+            } 
+            ?>">
+    <meta name="keywords" 
+    content="<?php 
+            if(isset($pagetag)){ 
+                echo $pagetag; 
+            }
+            else {
+                echo "Ubloging, Blog Website";
+            } 
+            ?>">
+    <meta name="author" 
+    content="<?php 
+            if(isset($pageauthor)){ 
+                echo $pageauthor; 
+            }
+            else {
+                echo "Md. Likhon Sorkar";
+            } 
+    ?>"
+    >
 
-    <link rel="shortcut icon" href="site/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="admin/site/favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -47,7 +87,7 @@
                 <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-dark">
                     <a class="navbar-brand" href="index.php">
-                        <img src="https://picsum.photos/363/122" alt="Your Logo" width="200" height="auto" class="d-inline-block align-top">
+                        <img src="admin/site/logo.png" alt="Your Logo" width="200" height="auto" class="d-inline-block align-top">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

@@ -1,4 +1,7 @@
-<?php include_once ('includes/head.php'); 
+<?php 
+include_once('database.php');
+$obj = new database();
+include_once ('includes/head.php'); 
     $author_query = $obj->authordetails($_GET['id']);
     $author_data = mysqli_fetch_assoc($author_query); 
     $author_fname = $author_data['fname'];
