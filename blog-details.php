@@ -18,7 +18,7 @@
        $obj = new database();
         $pagetitle = $data['title'];
         $pagedes = $data['meta_description'];
-        $pagethumb = "images/".$data['feature_image'];
+        $pagethumb = "http://localhost/likhon/images/".$data['feature_image'];
         $pagetag = $data['tags'];
         $pageauthor = $author_fullname;
     }
@@ -44,7 +44,7 @@
                     ?>
                         <a href="category.php?slug=<?php echo $catdata['slug'] ?>&catname=<?php echo $catdata['category_name']; ?>" class="text-warning text-uppercase"><?php echo $catdata['category_name']; ?></a>
                     </h4>
-                    <h2 class="h3" style="color:#45526e"><?php echo $data['title'] ?></h2>
+                    <h1 class="h3" style="color:#45526e"><?php echo $data['title'] ?></h1>
                     <ul class="post-info">
                         <li><a href="profile.php?id=<?php echo $author_id;?>"><?php echo $author_fullname;
                         // Profile Badge

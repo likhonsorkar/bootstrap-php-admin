@@ -194,6 +194,18 @@ class database {
             die("Connection Problem");
         }  
     }
+
+
+    // Sitemap Maker
+    // Function to get post data by ID
+    public function xmlpostlist() {
+        $sql = "SELECT * FROM blog_posts";
+        if($query = mysqli_query($this->conn, $sql)){
+            return  $query;
+        }else{
+            die("Connection Problem");
+        }        
+    } 
     
 
 }
