@@ -3,7 +3,7 @@
                         <h3 class="title">Search</h3>
                     </div>
                     <div class="widget-body">
-                        <form action="search.php" method="GET">
+                        <form action="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/search.php" method="GET">
                             <div class="input-group">
                                 <input type="text" name="q" class="form-control" placeholder="Search...">
                                 <button class="btn btn-outline-secondary" type="submit">Go</button>
@@ -29,17 +29,17 @@
                             <div class="latest-post-aside media">
                                 <div class="lpa-left media-body">
                                     <div class="lpa-title">
-                                        <h5><a href="blog-details.php?slug=<?php echo $data['slug'] ?>"> <?php echo $data['title'] ?> </a></h5>
+                                        <h5><a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/blog/<?php echo $data['slug'] ?>"> <?php echo $data['title'] ?> </a></h5>
                                     </div>
                                     <div class="lpa-meta">
-                                        <a class="name" href="blog-details.php?slug=<?php echo $data['slug'] ?>">
+                                        <a class="name" href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/blog/<?php echo $data['slug'] ?>">
                                             <?php 
                                                 $cat = $obj->singlecatlist($data['category_id']);
                                                 $catdata = mysqli_fetch_assoc($cat);
                                                 echo $catdata['category_name']; 
                                             ?>
                                         </a>
-                                        <a class="date " href="blog-details.php?slug=<?php echo $data['slug'] ?>">
+                                        <a class="date " href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/blog/<?php echo $data['slug'] ?>">
                                         <?php $dateString = $data['publication_date'];
                                                         $dateTime = new DateTime($dateString);
                                                         $formattedDate = $dateTime->format('d F Y');
@@ -49,8 +49,8 @@
                                     </div>
                                 </div>
                                 <div class="lpa-right">
-                                    <a href="blog-details.php?slug=<?php echo $data['slug'] ?>">
-                                        <img src="images/<?php echo $data['feature_image']; ?>" title="" alt="">
+                                    <a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/blog/<?php echo $data['slug'] ?>">
+                                        <img src="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/images/<?php echo $data['feature_image']; ?>" title="" alt="<?php echo $data['slug'] ?>">
                                     </a>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                     $catname = $data['category_name'];
                                     $catslug = $data['slug'];
                                     ?>
-                                    <li class="cat-cloud"><a href="category.php?slug=<?php echo $catslug ?>&catname=<?php echo $catdata['category_name']; ?>"><i class="fa-solid fa-list mr-2"></i> <?php echo $catname ?></a></li>
+                                    <li class="cat-cloud"><a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/category/<?php echo $catslug ?>"><i class="fa-solid fa-list mr-2"></i> <?php echo $catname ?></a></li>
                                     <?php
                                 } 
                             ?>

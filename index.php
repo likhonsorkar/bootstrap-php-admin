@@ -3,7 +3,7 @@ include_once('database.php');
 $obj = new database();
 $pagetitle = "ubloging";
 $pagedes = "Ubloging is a blog website";
-$pagethumb = "admin/site/logo.png";
+$pagethumb = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME']."/admin/site/logo.png";
 $pagetag = "Ubloging, Blog Website";
 $pageauthor = "Md. Likhon Sorkar";
 include_once ('includes/head.php'); 

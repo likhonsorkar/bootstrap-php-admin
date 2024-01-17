@@ -10,7 +10,7 @@
                     <div id="news-slider" class="owl-carousel">
                         <?php 
                             while($data = mysqli_fetch_assoc($query)){
-                                $featured_image = "images/".$data['feature_image'];
+                                $featured_image = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME']."/"."images/".$data['feature_image'];
                                 $post_title = $data['title'];
                                 $post_date = $data['publication_date'];
                                 ?>
@@ -19,7 +19,7 @@
                                             <img src="<?php echo $featured_image ?>" alt="">
                                         </div>
                                         <h3 class="post-title">
-                                            <a href="blog-details.php?slug=<?php echo $data['slug'] ?>"><?php echo $post_title ?></a>
+                                            <a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/blog/<?php echo $data['slug'] ?>"><?php echo $post_title ?></a>
                                         </h3>
                                         <span class="post-date">
                                         <?php 

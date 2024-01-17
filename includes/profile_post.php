@@ -38,7 +38,7 @@
                                             $cat = $obj->singlecatlist($data['category_id']);
                                             $catdata = mysqli_fetch_assoc($cat);
                                         ?>
-                                        <a href="category.php?slug=<?php echo $catdata['slug'] ?>" class="badge bg-success mb-2"><?php echo $catdata['category_name']; ?></a>
+                                        <a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/category/<?php echo $catdata['slug'] ?>" class="badge bg-success mb-2"><?php echo $catdata['category_name']; ?></a>
                                     </div>
                                 </div>
                         

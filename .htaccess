@@ -1,11 +1,23 @@
-ErrorDocument 404 /404.php
+# Enable the rewrite engine
 RewriteEngine On
-    # Redirect requests for .php files to extensionless URLs
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME}\.php -f
-    RewriteRule ^(.+?)/?$ $1.php [L]
-    # Redirect requests for the old .php URLs to the extensionless URLs
-    RewriteCond %{THE_REQUEST} \s/+(.+?)\.php [NC]
-    RewriteRule ^ /%1 [R=301,L]
+
+# ErrorDocument for 404 errors
+ErrorDocument 404 /404.php
+
+# Redirect requests for .php files to extensionless URLs (except for blog-details.php and category.php)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/(blog-details|category)\.php$
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# Redirect requests for the old .php URLs to the extensionless URLs
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Rewrite blog URLs
+RewriteRule ^blog/([^/]+)$ blog-details.php?slug=$1 [L,QSA]
+
+# Rewrite post category URLs
+RewriteRule ^category/([^/]+)$ category.php?slug=$1 [L,NE,QSA]
 
 

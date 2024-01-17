@@ -31,13 +31,13 @@
                             <div class="row">
                                 <!-- Left Column - Featured Image with Overlay -->
                                 <div class="col-lg-6 position-relative">
-                                    <img src="images/<?php echo $data['feature_image']; ?>" class="img-fluid" alt="Post Image">
+                                    <img src="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/images/<?php echo $data['feature_image']; ?>" class="img-fluid" alt="Post Image">
                                     <div class="post-overlay">
                                         <?php 
                                             $cat = $obj->singlecatlist($data['category_id']);
                                             $catdata = mysqli_fetch_assoc($cat);
                                         ?>
-                                        <a href="category.php?slug=<?php echo $catdata['slug'] ?>" class="badge bg-success mb-2"><?php echo $catdata['category_name']; ?></a>
+                                        <a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/category/<?php echo $catdata['slug'] ?>" class="badge bg-success mb-2"><?php echo $catdata['category_name']; ?></a>
                                     </div>
                                 </div>
                         
@@ -69,7 +69,7 @@
                                                     echo $shortenedString;
                                                 ?>
                                             </p>
-                                            <a href="blog-details.php?slug=<?php echo $data['slug'] ?>" class="btn btn-custom">Read More</a>
+                                            <a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/blog/<?php echo $data['slug'] ?>" class="btn btn-custom">Read More</a>
                                     </div>
                                 </div>
                             </div>

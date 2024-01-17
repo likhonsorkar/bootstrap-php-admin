@@ -37,6 +37,7 @@ class database {
     }
 
 
+
     // Function to get post data by ID
     public function postlist($limit, $offset) {
         $sql = "SELECT * FROM blog_posts LIMIT $limit OFFSET $offset";
@@ -206,6 +207,17 @@ class database {
             die("Connection Problem");
         }        
     } 
+
+    public function singlecatname($slug){
+        $catlist = "SELECT * FROM post_category WHERE slug='$slug'";
+        if($query = mysqli_query($this->conn,$catlist)){
+            $data =   mysqli_fetch_assoc($query);
+            $catname = $data['category_name'];
+            return $catname;
+        }else{
+            die("Connection Problem");
+        }
+    }
     
 
 }

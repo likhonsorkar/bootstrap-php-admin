@@ -1,4 +1,8 @@
+
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
     include_once('database.php');
     $obj = new database();
     if (isset($_GET['slug'])){
@@ -35,14 +39,14 @@
             <div class="col-lg-8">
                 <div class="widget post-details p-3">
                     <div class="featured_image mb-2 border">
-                        <img class="img-fluid w-100" src="images/<?php echo $data['feature_image']; ?>" alt="featured-image">
+                        <img class="img-fluid w-100" src="../images/<?php echo $data['feature_image']; ?>" alt="featured-image">
                     </div>
                     <h4 class="h6">
                     <?php 
                         $cat = $obj->singlecatlist($data['category_id']);
                         $catdata = mysqli_fetch_assoc($cat);
                     ?>
-                        <a href="category.php?slug=<?php echo $catdata['slug'] ?>&catname=<?php echo $catdata['category_name']; ?>" class="text-warning text-uppercase"><?php echo $catdata['category_name']; ?></a>
+                        <a href="<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/category/<?php echo $catdata['slug'] ?>" class="text-warning text-uppercase"><?php echo $catdata['category_name']; ?></a>
                     </h4>
                     <h1 class="h3" style="color:#45526e"><?php echo $data['title'] ?></h1>
                     <ul class="post-info">
@@ -101,7 +105,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <!-- Profile Photo Rounded -->
-                                        <img src="images/<?php echo $author_profile; ?>" alt="Author Photo" class="img-fluid rounded-circle">
+                                        <img src="../images/<?php echo $author_profile; ?>" alt="Author Photo" class="img-fluid rounded-circle">
                                     </div>
                                     <div class="col-md-9">
                                         <!-- Name with Profile Link -->
@@ -132,10 +136,10 @@
 
                                     <!-- Share Buttons -->
                                     <div class="d-flex">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u=your-website-url" target="_blank" class="btn btn-primary me-3"><i class="fab fa-facebook"></i></a>
-                                        <a href="https://www.youtube.com/share?url=your-website-url" target="_blank" class="btn btn-danger me-3"><i class="fab fa-youtube"></i></a>
-                                        <a href="https://www.instagram.com/share?url=your-website-url" target="_blank" class="btn btn-warning me-3"><i class="fab fa-instagram"></i></a>
-                                        <a href="https://twitter.com/share?url=your-website-url" class="btn btn-info me-3"><i class="fa-brands fa-x-twitter"></i></a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/<?php echo $data['slug'] ?>" target="_blank" class="btn btn-primary me-3"><i class="fab fa-facebook"></i></a>
+                                        <a href="https://www.youtube.com/share?url=<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/<?php echo $data['slug'] ?>" target="_blank" class="btn btn-danger me-3"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://www.instagram.com/share?url=<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/<?php echo $data['slug'] ?>" target="_blank" class="btn btn-warning me-3"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com/share?url=<?php echo $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'];?>/<?php echo $data['slug'] ?>" class="btn btn-info me-3"><i class="fa-brands fa-x-twitter"></i></a>
                                         <a href="#" class="btn btn-secondary"><i class="fas fa-globe"></i></a>
                                     </div>
                                 </div>
